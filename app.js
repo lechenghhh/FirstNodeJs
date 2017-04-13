@@ -8,9 +8,23 @@
 var express = require('express');
 var app = express();
 
+var json = {
+    'status': 1,
+    'msg': '成功',
+    'data': [{
+        'title': '标题1',
+        'content': '内容1',
+    }, {
+        'title': '标题2',
+        'content': '内容2',
+    }, {
+        'title': '标题3',
+        'content': '内容3',
+    }]
+}
 app.get('/lecheng', function (req, res) {
-    res.send('Halo LeCheng~!')
-
+    // res.send('Halo LeCheng~!')
+    res.send(json)
 });
 
 app.listen(3000);
