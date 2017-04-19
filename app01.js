@@ -23,7 +23,7 @@ var json = {
     }]
 }
 app.get('/lecheng', function (req, res) {
-    // res.send('Halo LeCheng~!')
+    // res.send('Hallo LeCheng~!')
     res.send(json)
 });
 
