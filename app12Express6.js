@@ -15,7 +15,7 @@ var multer  = require('multer');
 
 app.use(express.static('public'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(multer({ dest: '/tmp/'}).array('image'));
+app.use(multer({ dest: '/tmp/'}).array('file'));//建议使用file字段
 
 // app.get('/index.htm', function (req, res) {
 //     res.sendFile( __dirname + "/" + "index.htm" );
