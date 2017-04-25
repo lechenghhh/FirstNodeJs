@@ -1,5 +1,6 @@
 /**
  * Created by 乐城 on 2017/4/19.
+ * http://www.runoob.com/nodejs/nodejs-mongodb.html
  * MangoDB实例: 插入数据
  * 启动服务   D:\MongoDB\Server\3.4\bin\mongod.exe
  * node app13Insert
