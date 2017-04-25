@@ -13,7 +13,7 @@ var selectData = function (db, callback) {
     //连接到表
     var collection = db.collection('site');
     //查询数据
-    var whereStr = {"name": '菜鸟教程'};
+    var whereStr = {"name": '菜鸟教程'};//花括号内若为空则为全查
     collection.find(whereStr).toArray(function (err, result) {
         if (err) {
             console.log('Error:' + err);

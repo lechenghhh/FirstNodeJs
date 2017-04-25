@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script src="jquery-2.1.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $("#btn1").on("click", function () {
+            $("#result").text("请求数据中...");
+            $.post("/note_select", {name: $("#namevalue").val()},        //get方式
+                function (data) {                                       //成功回调
+                    $("#result").text(data);
+                }).error(function () {                                  //失败回调
+                alert("加载失败,服务器开了小差！");
+                $("#result").text("加载失败,服务器开了小差！");
+            })
+        });
+    });
+</script>
+<div>
+    <!--<input id="namevalue" type="text"><br>-->
+    <button id="btn1">发送ajax请求</button>
+    <br>
+    <span id="result">这里显示结果</span>
+</div>
+<a href="demo01add.html">添加>>></a>
+</body>
+</html>
