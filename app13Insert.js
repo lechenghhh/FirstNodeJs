@@ -12,7 +12,7 @@ var insertData = function (db, callback) {
     //连接到表 site
     var collection = db.collection('site');
     //插入数据
-    var data = [{"name": "菜鸟教程", "url": "www.runoob.com"}, {"name": "菜鸟工具", "url": "c.runoob.com"}];
+    var data = [{"title": "菜鸟教程", "content": "我真的是1212小白"}, {"title": "菜鸟工具", "content": "我真的是"}];
     collection.insert(data, function (err, result) {
         if (err) {
             console.log('Error:' + err);

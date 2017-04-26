@@ -48,7 +48,7 @@ var select = function (req,res) {
     });
     var selectData = function (db, callback) {
         //连接到表
-        var collection = db.collection('site');
+        var collection = db.collection('my_note');
         //查询数据
         var whereStr = {};
         collection.find(whereStr).toArray(function (err, result) {

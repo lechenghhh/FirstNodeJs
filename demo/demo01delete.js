@@ -49,7 +49,7 @@ var insert = function (req) {
 
     var insertData = function (db, callback) {
         //连接到表 site
-        var collection = db.collection('site');
+        var collection = db.collection('my_note');
         //插入数据
         var data = [{"title": req.body.title, "content": req.body.content, "time": Date.now(), "test": ""},];
         collection.insert(data, function (err, result) {
