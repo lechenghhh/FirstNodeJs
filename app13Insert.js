@@ -1,4 +1,4 @@
-/**
+﻿/**
  * Created by 乐城 on 2017/4/19.
  * http://www.runoob.com/nodejs/nodejs-mongodb.html
  * MangoDB实例: 插入数据
@@ -12,8 +12,8 @@ var insertData = function (db, callback) {
     //连接到表 site
     var collection = db.collection('site');
     //插入数据
-    var data = [{"name": "菜鸟教程", "url": "www.runoob.com"}, {"name": "菜鸟工具", "url": "c.runoob.com"}];
-    collection.insert(data, function (err, result) {
+    var data = {"name": "菜鸟教程", "url": "www.runoob.com"};
+    collection.insertOne(data, function (err, result) {
         if (err) {
             console.log('Error:' + err);
             return;

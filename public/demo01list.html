@@ -12,7 +12,18 @@
             $("#result").text("请求数据中...");
             $.post("/note_select", {name: $("#namevalue").val()},        //get方式
                 function (data) {                                       //成功回调
-                    $("#result").text(data);
+
+//                    var div1 = '';
+//                    for (var i = 0; i < data.result.lenth(); i++) {
+//                        div1 = div1 + "<a>data.result.title</a><br>"
+//                    }
+                    console.log(JSON.parse(data));
+                    var ar=JSON.parse(data).result;
+                    for(var i in ar){
+                        console.log(ar[i]);
+                        $("#result").append("<p>"+ar[i].title+"</p>")
+                    }
+                    //$("#result").text(data);
                 }).error(function () {                                  //失败回调
                 alert("加载失败,服务器开了小差！");
                 $("#result").text("加载失败,服务器开了小差！");
