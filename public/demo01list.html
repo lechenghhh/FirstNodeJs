@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" href="bootstrap.min.css">
 </head>
 <body>
 <script src="jquery-2.1.1.min.js"></script>
@@ -12,18 +13,14 @@
             $("#result").text("请求数据中...");
             $.post("/note_select", {name: $("#namevalue").val()},        //get方式
                 function (data) {                                       //成功回调
-
-//                    var div1 = '';
-//                    for (var i = 0; i < data.result.lenth(); i++) {
-//                        div1 = div1 + "<a>data.result.title</a><br>"
-//                    }
                     console.log(JSON.parse(data));
-                    var ar=JSON.parse(data).result;
-                    for(var i in ar){
+                    $("#result").text("");
+                    var ar = JSON.parse(data).result;
+                    for (var i in ar) {
                         console.log(ar[i]);
-                        $("#result").append("<p>"+ar[i].title+"</p>")
+                        $("#result").append("<p class='text-success'>" + ar[i].title + "</p>")
                     }
-                    //$("#result").text(data);
+
                 }).error(function () {                                  //失败回调
                 alert("加载失败,服务器开了小差！");
                 $("#result").text("加载失败,服务器开了小差！");
@@ -37,6 +34,16 @@
     <br>
     <span id="result">这里显示结果</span>
 </div>
-<a href="demo01add.html">添加>>></a>
+<!--<a href="demo01add.html">添加>>></a>-->
+<h3>添加一条新的记事:</h3>
+<form role="form" action="http://127.0.0.1:8091/note_add" method="POST">
+    <div class="form-group">
+        <label for="name1"> 标题:</label>
+        <input type="text" name="title" id="name1" class="form-control"></div>
+    <div class="form-group">
+        <label for="name2"> 内容:</label>
+        <input type="text" name="content" id="name2" class="form-control"></div>
+    <button type="submit" class="btn btn-success">提交</button>
+</form>
 </body>
 </html>
