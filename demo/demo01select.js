@@ -12,36 +12,31 @@ var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
 var DB_CONN_STR = 'mongodb://localhost:27017/runoob'; // 数据库为 runoob
-
-// 创建 application/x-www-form-urlencoded 编码解析
-var urlencodedParser = bodyParser.urlencoded({extended: false})
-
+var urlencodedParser = bodyParser.urlencoded({extended: false})//创建 application/x-www-form-urlencoded编码解析
 
 app.use(express.static('public'));
 
 // app.get('/index.htm', function (req, res) {
 //     res.sendFile( __dirname + "/" + "index.htm" );
-// })
+// })//屏蔽get方法
 
-app.post('/note_select', urlencodedParser, function (req, res) {
-
-    select(req,res)
+app.post('/note_select', urlencodedParser, function (req, res) {//穿件路由
+    select(req, res);
 })
 
 var server = app.listen(8091, function () {
     var host = server.address().address
     var port = server.address().port
     console.log("应用实例，访问地址为 http://%s:%s", host, port)
-
 })
 
-var select = function (req,res) {
+var select = function (req, res) {
     MongoClient.connect(DB_CONN_STR, function (err, db) {
         console.log("连接成功！");
         selectData(db, function (result) {
             console.log(result);
             db.close();
-            response = result;
+            response = {'result': result};
             console.log(response);
             res.end(JSON.stringify(response));
         });

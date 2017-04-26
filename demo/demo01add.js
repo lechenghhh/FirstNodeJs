@@ -51,7 +51,7 @@ var insert = function (req) {
         //连接到表 site
         var collection = db.collection('my_note');
         //插入数据
-        var data = [{"title": req.body.title, "content": req.body.content, "time": Date.now(), "test": ""},];
+        var data = [{"title": req.body.title, "content": req.body.content, "time": Date.now(), "test": ""}];
         collection.insert(data, function (err, result) {
             if (err) {
                 console.log('Error:' + err);
