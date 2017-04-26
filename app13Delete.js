@@ -12,7 +12,7 @@ var delData = function (db, callback) {
     //连接到表
     var collection = db.collection('site');
     //删除数据
-    var whereStr = {"name": '菜鸟工具'};
+    var whereStr = {"title": '菜鸟工具4'};
     collection.remove(whereStr, function (err, result) {
         if (err) {
             console.log('Error:' + err);

@@ -19,8 +19,8 @@ var urlencodedParser = bodyParser.urlencoded({extended: false})//创建 applicat
 // })//屏蔽get方法
 
 /*
-* select查询方法
-* */
+ * select查询方法
+ * */
 app.post('/note_select', urlencodedParser, function (req, res) {//穿件路由
     select(req, res);
 })
@@ -88,7 +88,12 @@ var insert = function (req) {
         //连接到表 site
         var collection = db.collection('my_note');
         //插入数据
-        var data = [{"title": req.body.title, "content": req.body.content, "time": Date.now(), "test": ""}];
+        var data = [{
+            "title": req.body.title,
+            "content": req.body.content,
+            "time": new Date(parseInt(Date.now()) * 1000).toLocaleString().substr(0, 17),
+            "test": ""
+        }];
         collection.insert(data, function (err, result) {
             if (err) {
                 console.log('Error:' + err);

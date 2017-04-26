@@ -13,8 +13,8 @@ var updateData = function (db, callback) {
     //连接到表
     var collection = db.collection('site');
     //更新数据
-    var whereStr = {"name": '菜鸟教程'};
-    var updateStr = {$set: {"url": "https://www.runoob.com"}};
+    var whereStr = {"title": '菜鸟教程3'};
+    var updateStr = {$set: {"content": "修改后的内容"}};
     collection.update(whereStr, updateStr, function (err, result) {
         if (err) {
             console.log('Error:' + err);
