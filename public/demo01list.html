@@ -13,13 +13,12 @@
         $.post("/note_select", {name: $("#namevalue").val()},       //get方式
             function (data) {                                       //成功回调
                 console.log(JSON.parse(data));
-//                    $("#result").text("<div class='container'> <div class='row'>");
                 $("#result").text("");
                 var ar = JSON.parse(data).result;
                 for (var i in ar) {
                     console.log(ar[i]);
                     $("#result").append("<br><strong class='text-success'>" + ar[i].title + "</strong>"
-                        + "<p class='text-success'>" + ar[i].time + "</p>"
+                        + "<p class='text-info'>" + ar[i].time + "</p>"
                         + "<span class='text-success'>" + ar[i].content + "</span>"
                         + "<a class='text-primary' href='demo01edit.html"
                         + "?_id=" + ar[i]._id
@@ -54,12 +53,10 @@
     }
 </script>
 <div>
-    <!--<input id="namevalue" type="text"><br>-->
-    <button id="btn1" class="btn btn-info">回到记事本列表页</button>
+    <button id="btn1" class="btn btn-info">记事本列表页</button>
     <br>
     <span id="result">这里显示结果</span>
 </div>
-<!--<a href="demo01edit.html">添加>>></a>-->
 <h4 class="text-info">添加一条新的记事:</h4>
 <form role="form" action="http://127.0.0.1:8091/note_add" method="POST">
     <div class="form-group">

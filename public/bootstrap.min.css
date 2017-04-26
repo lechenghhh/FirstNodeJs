@@ -10,7 +10,8 @@ html {
 }
 
 body {
-    margin: 16
+    margin: 16;
+    background: url("http://h8.86.cc/walls/20160225/1024x768_5a3b74c1f9c118e.jpg")
 }
 
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
