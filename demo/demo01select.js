@@ -1,7 +1,7 @@
 /**
  * Created by 乐城 on 2017/4/19.
  * http://www.runoob.com/nodejs/nodejs-mongodb.html
- * MangoDB实例: 插入数据
+ * MangoDB实例: 查询数据
  * 启动服务：  D:\MongoDB\Server\3.4\bin\mongod.exe
  * node .\demo\demo01select
  * 页面地址：  http://127.0.0.1:8091/demo01list.html
