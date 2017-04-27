@@ -44,11 +44,6 @@
     //    });
 </script>
 <h4 class="text-info">修改记事内容:</h4>
-<!--<form action="http://127.0.0.1:8091/note_update" method="POST">-->
-<!--标题: <input type="text" name="title" id="title"> <br>-->
-<!--内容: <input type="text" name="content" id="content">-->
-<!--<input type="submit" value="Submit">-->
-<!--</form>-->
 <form role="form" action="http://127.0.0.1:8091/note_update" method="POST">
     <div style="display:none">_id: <input type="text" name="_id" id="_id"></div>
     <div class="form-group">
@@ -56,7 +51,7 @@
         <input type="text" name="title" id="title" class="form-control"></div>
     <div class="form-group">
         <label for="content"> 内容:</label>
-        <input type="text" name="content" id="content" class="form-control"></div>
+        <textarea  type="text" name="content" id="content" class="form-control"></textarea></div>
     <button type="submit" class="btn btn-success">修改内容</button>
 </form>
 </body>
