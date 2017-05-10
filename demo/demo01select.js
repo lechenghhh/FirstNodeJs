@@ -7,7 +7,7 @@
  * 页面地址：  http://127.0.0.1:8091/demo01list.html
  */
 
-var express = require('express');
+/*var express = require('express');
 var app = express();
 var bodyParser = require('body-parser');
 var MongoClient = require('mongodb').MongoClient;
@@ -18,9 +18,9 @@ var urlencodedParser = bodyParser.urlencoded({extended: false})//创建 applicat
 //     res.sendFile( __dirname + "/" + "index.htm" );
 // })//屏蔽get方法
 
-/*
+/!*
  * select查询方法
- * */
+ * *!/
 app.post('/note_select', urlencodedParser, function (req, res) {//穿件路由
     select(req, res);
 })
@@ -57,9 +57,9 @@ var select = function (req, res) {
     }
 }
 
-/*
+/!*
  *   add方法
- * */
+ * *!/
 // 创建 application/x-www-form-urlencoded 编码解析
 var urlencodedParser = bodyParser.urlencoded({extended: false})
 
@@ -110,5 +110,5 @@ var insert = function (req) {
             db.close();
         });
     });
-}
+}*/
 
