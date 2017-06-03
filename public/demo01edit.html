@@ -21,27 +21,6 @@
         $("#content").val(decodeURI(GetQueryString("content")));
         GetQueryString();
     });
-    //    $(document).ready(function () {
-    //        (function ($) {
-    //            $.extend({
-    //                urlGet: function () {
-    //                    var aQuery = window.location.href.split("?");  //取得Get参数
-    //                    var aGET = new Array();
-    //                    if (aQuery.length > 1) {
-    //                        var aBuf = aQuery[1].split("&");
-    //                        for (var i = 0, iLoop = aBuf.length; i < iLoop; i++) {
-    //                            var aTmp = aBuf[i].split("=");  //分离key与Value
-    //                            aGET[aTmp[0]] = aTmp[1];
-    //                        }
-    //                    }
-    //                    return aGET;
-    //                }
-    //            })
-    //        })(jQuery);
-    //        var GET = $.urlGet(); //获取URL的Get参数
-    //        var content = GET['content']; //取得id的值
-    //        $("#content").val(content);
-    //    });
 </script>
 <h4 class="text-info">修改记事内容:</h4>
 <form role="form" action="http://127.0.0.1:8091/note_update" method="POST">
@@ -51,7 +30,7 @@
         <input type="text" name="title" id="title" class="form-control"></div>
     <div class="form-group">
         <label for="content"> 内容:</label>
-        <textarea  type="text" name="content" id="content" class="form-control"></textarea></div>
+        <textarea type="text" name="content" id="content" class="form-control"></textarea></div>
     <button type="submit" class="btn btn-success">修改内容</button>
 </form>
 </body>
