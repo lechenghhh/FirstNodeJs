@@ -3,7 +3,7 @@
  * 本地测试：http://localhost:3000/lecheng
  * 教程地址：http://www.jikexueyuan.com/course/723.html
  * express：http://expressjs.com/
- * 启动指令：node app    */
+ * 启动指令：node app01    */
 
 var express = require('express');
 var app = express();
