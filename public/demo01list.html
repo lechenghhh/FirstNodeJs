@@ -4,54 +4,54 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-2.1.1.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("#result").text("请求数据中...");
+            $.post("/note_select", {name: $("#namevalue").val()},       //get方式
+                function (data) {                                       //成功回调
+                    console.log(JSON.parse(data));
+                    $("#result").text("");
+                    var ar = JSON.parse(data).result;
+                    for (var i in ar) {
+                        console.log(ar[i]);
+                        $("#result").append("<strong class='text-success'>" + ar[i].title + "</strong>"
+                            + "<p class='text-info'>" + ar[i].time + "</p>"
+                            + "<span class='text-success'>" + ar[i].content + "</span>"
+                            + "<a class='text-primary' href='demo01edit.html"
+                            + "?_id=" + ar[i]._id
+                            + "&title=" + ar[i].title
+                            + "&content=" + ar[i].content
+                            + "'>  编辑  </a>"
+                            + "<a class='text-danger' href='demo01list.html?_id="
+                            + ar[i]._id + "'>  删除  </a>"
+                            + "<hr style='background-color: rgba(44,126,150,0.53);height: 1px'>")
+                    }
+                }).error(function () {                                  //失败回调
+                alert("加载失败,服务器开了小差！");
+                $("#result").text("加载失败,服务器开了小差！");
+            });
+        });
+    </script>
+    <script>
+        var yid = location.search.replace(/[?&]yid=([^&#]*)/gi, function (a, b) {
+            return b;
+        });
+        yid = yid.replace("?_id=", "");
+        if (!yid == "") {//如果有传值，就输入
+            $("#result").text("请求数据中...");
+            $.post("/note_delete", {_id: yid},       //get方式
+                function (data) {                                       //成功回调
+                    alert(data);
+                    self.location = 'demo01list.html';
+                }).error(function () {                                  //失败回调
+                alert("删除失败,服务器开了小差！");
+                $("#result").text("加载失败,服务器开了小差！");
+            })
+        }
+    </script>
 </head>
 <body>
-<script src="jquery-2.1.1.min.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#result").text("请求数据中...");
-        $.post("/note_select", {name: $("#namevalue").val()},       //get方式
-            function (data) {                                       //成功回调
-                console.log(JSON.parse(data));
-                $("#result").text("");
-                var ar = JSON.parse(data).result;
-                for (var i in ar) {
-                    console.log(ar[i]);
-                    $("#result").append("<strong class='text-success'>" + ar[i].title + "</strong>"
-                        + "<p class='text-info'>" + ar[i].time + "</p>"
-                        + "<span class='text-success'>" + ar[i].content + "</span>"
-                        + "<a class='text-primary' href='demo01edit.html"
-                        + "?_id=" + ar[i]._id
-                        + "&title=" + ar[i].title
-                        + "&content=" + ar[i].content
-                        + "'>  编辑  </a>"
-                        + "<a class='text-danger' href='demo01list.html?_id="
-                        + ar[i]._id + "'>  删除  </a>"
-                        + "<hr style='background-color: rgba(44,126,150,0.53);height: 1px'>")
-                }
-            }).error(function () {                                  //失败回调
-            alert("加载失败,服务器开了小差！");
-            $("#result").text("加载失败,服务器开了小差！");
-        })
-    });
-</script>
-<script>
-    var yid = location.search.replace(/[?&]yid=([^&#]*)/gi, function (a, b) {
-        return b;
-    });
-    yid = yid.replace("?_id=", "");
-    if (!yid == "") {//如果有传值，就输入
-        $("#result").text("请求数据中...");
-        $.post("/note_delete", {_id: yid},       //get方式
-            function (data) {                                       //成功回调
-                alert(data);
-                self.location = 'demo01list.html';
-            }).error(function () {                                  //失败回调
-            alert("删除失败,服务器开了小差！");
-            $("#result").text("加载失败,服务器开了小差！");
-        })
-    }
-</script>
 <div>
     <button id="btn1" class="btn btn-info">记事本列表页</button>
     <br><br>
